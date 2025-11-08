@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arjun & Pooja — Engagement</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@300;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* GENERAL RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Poppins,Arial,sans-serif;background:#fff6f0;color:#40261f;overflow-x:hidden;}
+
+/* UNLOCK SCREEN */
+#unlockWrap{
+  height:100vh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#6d1220,#9a4d3f);
+  position:relative;color:#fff;text-align:center;
+}
+#unlockInner{padding:20px;}
+#unlockBtn{
+  margin-top:18px;padding:14px 30px;border-radius:40px;
+  border:2px solid rgba(255,255,255,.18);backdrop-filter:blur(4px);
+  font-weight:700;transition:0.3s;
+}
+#unlockBtn:hover{transform:scale(1.05);}
+#unlockHint{opacity:.9;margin-top:10px;font-size:14px;}
+
+/* E-CARD WRAPPER */
+#ecardWrapper{
+  position:relative;width:90%;max-width:600px;margin:50px auto;
+}
+
+/* GOLDEN SHIMMER */
+#goldenPulse{
+  position:absolute;top:-10px;left:-10px;right:-10px;bottom:-10px;
+  border-radius:30px;border:4px solid #d4af37;
+  pointer-events:none;
+  box-shadow:0 0 20px rgba(212,175,55,0.3),0 0 40px rgba(212,175,55,0.2);
+  animation: goldenGlow 2.5s ease-in-out infinite;
+  z-index:0;
+}
+@keyframes goldenGlow{
+  0%{ box-shadow:0 0 20px rgba(212,175,55,0.3),0 0 40px rgba(212,175,55,0.2);}
+  50%{ box-shadow:0 0 40px rgba(212,175,55,0.6),0 0 60px rgba(212,175,55,0.4);}
+  100%{ box-shadow:0 0 20px rgba(212,175,55,0.3),0 0 40px rgba(212,175,55,0.2);}
+}
+
+/* CARD CONTENT */
+#ecard{
+  position:relative;z-index:1;
+  background:white;border-radius:20px;overflow:hidden;
+  padding:30px;text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+#ecard img{width:100%;border-radius:16px;max-width:500px;}
+
+/* HEADING CALIGRAPHY */
+#ecard h1{
+  font-family:'Great Vibes',cursive;font-size:48px;color:#6d1220;margin-bottom:10px;
+}
+#ecard h2{font-size:28px;color:#d4af37;margin-bottom:20px;}
+
+/* RSVP BUTTON & SECTION */
+#viewRSVP{
+  margin-top:20px;background:#d4af37;color:#fff;padding:14px 40px;
+  border:none;border-radius:50px;font-weight:bold;box-shadow:0 4px 15px rgba(212,175,55,0.4);
+}
+#viewRSVP:hover{background:#c19a2e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.5);}
+#rsvpSection{display:none;margin-top:20px;}
+#rsvpSection input,#rsvpSection select{
+  width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ddd;font-size:14px;
+}
+#rsvpSection button{
+  background:#6d1220;color:#fff;padding:12px 30px;border-radius:40px;border:none;font-weight:bold;margin-top:10px;
+}
+#confirmation{display:none;margin-top:12px;color:#6d1220;font-weight:600;}
+
+/* COUNTDOWN */
+#countdown{margin-top:15px;font-size:18px;font-weight:700;color:#6d1220;}
+
+/* MAP & CALENDAR */
+#map{margin-top:20px;width:100%;height:200px;border-radius:16px;overflow:hidden;}
+.addCal{margin-top:15px;padding:12px 30px;background:#ff911b;color:#fff;border:none;border-radius:50px;font-weight:bold;box-shadow:0 4px 15px rgba(255,145,27,0.4);}
+.addCal:hover{background:#e08116;transform:translateY(-2px);}
+
+/* MUSIC */
+#musicBtn{position:fixed;right:16px;bottom:16px;width:60px;height:60px;border-radius:50%;
+background:#ff911b;display:flex;align-items:center;justify-content:center;cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.12);font-weight:bold;font-size:22px;z-index:999;}
+
+/* FLOATING HEARTS & SPARKLES */
+.heart,.sparkle{
+  position:absolute;
+  pointer-events:none;
+  opacity:0.8;
+  animation:float linear infinite;
+}
+.heart{width:20px;height:20px;background:pink;clip-path:polygon(50% 0%,61% 13%,75% 13%,88% 26%,100% 50%,88% 74%,75% 87%,61% 87%,50% 100%,39% 87%,25% 87%,12% 74%,0 50%,12% 26%,25% 13%,39% 13%);border-radius:50%;}
+.sparkle{width:8px;height:8px;background:#fff;border-radius:50%;box-shadow:0 0 4px #fff;}
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg);opacity:0.8;}
+  50%{opacity:0.5;}
+  100%{transform:translateY(-400px) rotate(360deg);opacity:0;}
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:600px){
+  #ecard h1{font-size:36px;}
+  #ecard h2{font-size:24px;}
+  #ecard img{max-width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- UNLOCK -->
+<div id="unlockWrap">
+  <div id="unlockInner">
+    <h2>श्री गणेशाय नमः</h2>
+    <p>Tap to Begin — Experience the invitation</p>
+    <button id="unlockBtn" onclick="unlockSite()">Open Invitation 💍</button>
+    <p id="unlockHint">ARJUN & POOJA — 26 Nov 2025, 1:00 PM</p>
+  </div>
+</div>
+
+<!-- E-CARD WRAPPER -->
+<div id="ecardWrapper" style="display:none;">
+  <div id="goldenPulse"></div>
+  <div id="ecard">
+    <h1>Arjun & Pooja</h1>
+    <h2>Engagement</h2>
+    <img src="invite.png" alt="Invitation Card">
+
+    <div id="countdown"></div>
+
+    <button id="viewRSVP" onclick="showRSVP()">RSVP</button>
+    <div id="rsvpSection">
+      <input type="text" id="guestName" placeholder="Your Name" required>
+      <select id="attending" required>
+        <option value="">Will you attend?</option>
+        <option value="yes">Joyfully Accepts</option>
+        <option value="no">Regretfully Declines</option>
+      </select>
+      <button onclick="submitRSVP()">Submit RSVP</button>
+    </div>
+    <div id="confirmation">Thank you! Your RSVP has been received.</div>
+
+    <div id="map">
+      <iframe src="https://www.google.com/maps?q=noida&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <button class="addCal" onclick="addToCalendar()">Add to Calendar</button>
+    <button class="addCal" onclick="downloadCard()">Download Card</button>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<div id="musicBtn" onclick="toggleMusic()">♪</div>
+<audio id="bgMusic" loop>
+  <source src="shehnai.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// --- UNLOCK ---
+function unlockSite(){
+  document.getElementById('unlockWrap').style.display='none';
+  document.getElementById('ecardWrapper').style.display='block';
+  document.getElementById('bgMusic').volume=1.0;
+  document.getElementById('bgMusic').play().catch(()=>{});
+  createHeartsAndSparkles();
+}
+
+// --- COUNTDOWN ---
+const EVENT_DATE = new Date('Nov 26, 2025 13:00:00');
+function updateCountdown(){
+  const now = new Date();
+  let diff = EVENT_DATE - now;
+  if(diff<=0){ document.getElementById('countdown').innerText="It's time — join us!"; return;}
+  let days=Math.floor(diff/(1000*60*60*24));
+  let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  let mins=Math.floor((diff%(1000*60*60))/(1000*60));
+  let secs=Math.floor((diff%(1000*60))/1000);
+  document.getElementById('countdown').innerText=`${days}d ${hours}h ${mins}m ${secs}s`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+// --- RSVP ---
+function showRSVP(){
+  document.getElementById('viewRSVP').style.display='none';
+  document.getElementById('rsvpSection').style.display='block';
+  window.scrollTo({ top: document.body.scrollHeight, behavior:'smooth' });
+}
+
+function submitRSVP(){
+  let name=document.getElementById('guestName').value.trim();
+  let attend=document.getElementById('attending').value;
+  if(name && attend){
+    document.getElementById('rsvpSection').style.display='none';
+    document.getElementById('confirmation').style.display='block';
+  }else{alert('Please fill in all fields.');}
+}
+
+// --- MUSIC ---
+function toggleMusic(){
+  let audio=document.getElementById('bgMusic');
+  if(audio.paused) audio.play(); else audio.pause();
+}
+
+// --- CALENDAR ---
+function addToCalendar(){
+  const start='20251126T130000';
+  const end='20251126T150000';
+  const details=encodeURIComponent("Join Arjun & Pooja's Engagement Party");
+  const location=encodeURIComponent("Noida, India");
+  const url=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arjun+%26+Pooja+Engagement&dates=${start}/${end}&details=${details}&location=${location}`;
+  window.open(url,'_blank');
+}
+
+// --- DOWNLOAD CARD ---
+function downloadCard(){
+  const link=document.createElement('a');
+  link.href='invite.png';
+  link.download='Arjun_Pooja_Engagement.png';
+  link.click();
+}
+
+// --- HEARTS & SPARKLES ---
+function createHeartsAndSparkles(){
+  const wrapper=document.getElementById('ecardWrapper');
+  for(let i=0;i<15;i++){
+    const heart=document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left=Math.random()*90+'%';
+    heart.style.animationDuration=3+Math.random()*3+'s';
+    heart.style.animationDelay=Math.random()*5+'s';
+    wrapper.appendChild(heart);
+  }
+  for(let i=0;i<30;i++){
+    const sparkle=document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.left=Math.random()*95+'%';
+    sparkle.style.top=Math.random()*95+'%';
+    sparkle.style.animationDuration=2+Math.random()*2+'s';
+    sparkle.style.animationDelay=Math.random()*5+'s';
+    wrapper.appendChild(sparkle);
+  }
+}
+</script>
+</body>
+</html>
